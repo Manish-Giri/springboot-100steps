@@ -14,5 +14,6 @@
 <h1>Welcome, ${name}!</h1>
 <hr>
 <p>Time on server: <%= new Date()%></p>
+<p>Here are your <a href="/list-todos">todo items</a>.</p>
 </body>
 </html>
