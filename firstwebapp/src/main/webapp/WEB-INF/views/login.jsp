@@ -11,7 +11,11 @@
 <body>
 <h1>Hello World</h1>
 
-<hr>
-<p>Time on server: <%= new Date()%></p>
+<p>Please login below</p>
+<form action="/login" method="post">
+    <input type="text" name="name" placeholder="Enter user name">
+    <input type="password" name="password" placeholder="Enter your password">
+    <input type="submit">
+</form>
 </body>
 </html>
