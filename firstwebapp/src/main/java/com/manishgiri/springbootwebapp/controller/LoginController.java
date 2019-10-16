@@ -25,8 +25,12 @@ public class LoginController {
             model.put("name", name);
             return "welcome";
         }
-        else
+        else {
+            String errorMessage = "Invalid credentials";
+            model.put("error", errorMessage);
             return "login";
+        }
+
         // return "welcome";
     }
 

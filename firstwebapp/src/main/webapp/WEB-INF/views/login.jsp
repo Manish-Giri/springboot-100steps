@@ -11,6 +11,7 @@
 <body>
 <h1>Hello World</h1>
 
+<h3 style="color:red">${error}</h3>
 <p>Please login below</p>
 <form action="/login" method="post">
     <input type="text" name="name" placeholder="Enter user name">
