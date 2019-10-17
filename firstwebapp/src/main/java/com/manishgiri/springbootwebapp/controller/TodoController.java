@@ -6,8 +6,13 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.SessionAttributes;
+
+import java.util.Date;
 
 @Controller
+@SessionAttributes("name")
 public class TodoController {
 
     @Autowired
@@ -19,7 +24,18 @@ public class TodoController {
 
     @RequestMapping(value = "/list-todos", method = RequestMethod.GET)
     public String showTodos(ModelMap model) {
-        model.put("todos", todoService.retrieveTodos("in28Minutes"));
+        model.put("todos", todoService.retrieveTodos((String) model.get("name")));
         return "list-todos";
+    }
+
+    @RequestMapping(value = "/add-todo", method = RequestMethod.GET)
+    public String showAddTodoPage() {
+        return "todo";
+    }
+
+    @RequestMapping(value = "/add-todo", method = RequestMethod.POST)
+    public String addTodo(@RequestParam String desc, ModelMap model) {
+        todoService.addTodo((String) model.get("name"), desc, new Date(), false);
+        return "redirect:/list-todos";
     }
 }
