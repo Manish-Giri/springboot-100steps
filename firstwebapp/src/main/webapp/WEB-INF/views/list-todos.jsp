@@ -11,6 +11,7 @@
 <html>
 <head>
     <title>Todo Items</title>
+    <link rel="stylesheet" href="webjars/bootstrap/4.3.1/css/bootstrap.css">
 </head>
 <body>
 <div class="container">
@@ -37,5 +38,7 @@
     </table>
     <div><a class="button" href="/add-todo">Add a Todo</a></div>
 </div>
+<script src="webjars/jquery/3.4.1/jquery.js"></script>
+<script src="webjars/bootstrap/4.3.1/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
