@@ -18,7 +18,7 @@
     <h1>Welcome, ${name}!</h1>
     <p>Here are your todo items.</p>
     <table class="table table-striped">
-        <caption>Your todos are</caption>
+<%--        <caption>Your todos are</caption>--%>
         <thead>
         <tr>
             <th>Description</th>

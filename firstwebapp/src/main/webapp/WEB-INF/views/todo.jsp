@@ -9,14 +9,25 @@
 <html>
 <head>
     <title>Add new todo</title>
+    <link rel="stylesheet" href="webjars/bootstrap/4.3.1/css/bootstrap.css">
 </head>
 <body>
-<h2>Welcome, ${name}</h2>
-<p>Add a new todo below</p>
+<div class="container">
+    <h1>Welcome, ${name}</h1>
+    <p>Add a new todo below</p>
 
-<form action="/add-todo" method="post">
-    <input type="text" name="desc" placeholder="Enter description of new todo">
-    <input type="submit">
-</form>
+    <form action="/add-todo" method="post">
+        <fieldset class="form-group">
+            <label>Description</label>
+            <input name="desc" type="text"
+                   class="form-control" required="required" placeholder="Enter description of new todo"/>
+        </fieldset>
+
+        <button type="submit" class="btn btn-success">Add</button>
+    </form>
+</div>
+
+<script src="webjars/jquery/3.4.1/jquery.js"></script>
+<script src="webjars/bootstrap/4.3.1/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
