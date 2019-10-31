@@ -1,5 +1,6 @@
 package com.manishgiri.springbootwebapp.controller;
 
+import com.manishgiri.springbootwebapp.model.Todo;
 import com.manishgiri.springbootwebapp.service.TodoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -29,13 +30,20 @@ public class TodoController {
     }
 
     @RequestMapping(value = "/add-todo", method = RequestMethod.GET)
-    public String showAddTodoPage() {
+    public String showAddTodoPage(ModelMap model) {
+        model.addAttribute(new Todo(0, (String) model.get("name"), "Default Description", new Date(), false));
         return "todo";
     }
 
-    @RequestMapping(value = "/add-todo", method = RequestMethod.POST)
+    /*@RequestMapping(value = "/add-todo", method = RequestMethod.POST)
     public String addTodo(@RequestParam String desc, ModelMap model) {
         todoService.addTodo((String) model.get("name"), desc, new Date(), false);
+        return "redirect:/list-todos";
+    }*/
+
+    @RequestMapping(value = "/add-todo", method = RequestMethod.POST)
+    public String addTodo(ModelMap model, Todo todo) {
+        todoService.addTodo((String) model.get("name"), todo.getDesc(), new Date(), false);
         return "redirect:/list-todos";
     }
 
